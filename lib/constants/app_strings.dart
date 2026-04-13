@@ -1,5 +1,6 @@
 class AppStrings {
 
+  static const String appName = "Fake Store";
   static const String noInternetCOnnection = 'No Internet Connection';
-  
+
 }

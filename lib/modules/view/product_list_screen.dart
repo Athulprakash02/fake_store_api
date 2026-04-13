@@ -12,8 +12,8 @@ class ProductListScreen extends StatelessWidget {
   int getCrossAxisCount(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
 
-    if (size.width > 900) return 4; 
-    if (size.width > 600) return 3; 
+    if (size.width > 900) return 4;
+    if (size.width > 600) return 3;
     return 2;
   }
 
@@ -31,6 +31,7 @@ class ProductListScreen extends StatelessWidget {
           child: GridView.builder(
             padding: const EdgeInsets.all(10),
             itemCount: controller.productsList.length,
+            physics: BouncingScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: getCrossAxisCount(context),
               crossAxisSpacing: 10,

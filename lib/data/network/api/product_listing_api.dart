@@ -21,17 +21,20 @@ class ProductListingApi {
           headers: {},
         ),
       );
-
+// log( response.toString());
       if (response.statusCode == 200) {
         List data = response.data;
 
         return data.map((e) => ProductListResponse.fromJson(e)).toList();
       } else {
+        log("errorr");
         throw Exception("Failed to load products");
       }
     } on DioException catch (e) {
+         log("errorr");
       throw Exception("Dio error: ${e.message}");
     } catch (e) {
+         log("errorr $e");
       throw Exception("Unexpected error: $e");
     }
   }

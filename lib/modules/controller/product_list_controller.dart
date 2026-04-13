@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fake_store_api/data/models/product_list_response.dart';
 import 'package:fake_store_api/data/network/api/product_listing_api.dart';
 import 'package:get/get.dart';
@@ -11,6 +13,7 @@ class ProductListController extends GetxController
   @override
   void onInit() {
     // TODO: implement onInit
+    fetchProducts();
     super.onInit();
   }
 
@@ -19,8 +22,9 @@ class ProductListController extends GetxController
 
     try {
       final response = await productsApi.getProducts();
-      productsList.clear();
-      productsList.assignAll(response);
+      productsList.value.clear();
+      productsList.value.assignAll(response);
+      log(productsList.toJson().toString());
     } catch (e) {
       isLoading(false);
     }

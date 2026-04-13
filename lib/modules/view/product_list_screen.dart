@@ -10,10 +10,10 @@ class ProductListScreen extends StatelessWidget {
   ProductListScreen({super.key});
 
   int getCrossAxisCount(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    Size size = MediaQuery.sizeOf(context);
 
-    if (width > 900) return 4; 
-    if (width > 600) return 3; 
+    if (size.width > 900) return 4; 
+    if (size.width > 600) return 3; 
     return 2;
   }
 
